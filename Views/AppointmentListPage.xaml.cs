@@ -1,8 +1,7 @@
 using DermatologyClinicApp.Data;
 using DermatologyClinicApp.Models;
-using DermatologyClinicApp.Views;
 
-namespace DermatologyClinicApp
+namespace DermatologyClinicApp.Views
 {
     public partial class AppointmentListPage : ContentPage
     {

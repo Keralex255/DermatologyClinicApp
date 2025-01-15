@@ -1,25 +1,26 @@
-﻿namespace DermatologyClinicApp
+﻿using DermatologyClinicApp.Data;
+using DermatologyClinicApp.Views;
+
+namespace DermatologyClinicApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly AppDbContext _context;
 
-        public MainPage()
+        public MainPage(AppDbContext context)
         {
             InitializeComponent();
+            _context = context;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnUsersClicked(object sender, EventArgs e)
         {
-            count++;
+            await Navigation.PushAsync(new UserListPage(_context));
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void OnAppointmentsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AppointmentListPage(_context));
         }
     }
-
 }

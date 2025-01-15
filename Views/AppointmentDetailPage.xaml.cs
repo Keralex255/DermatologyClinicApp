@@ -1,6 +1,5 @@
 using DermatologyClinicApp.Data;
 using DermatologyClinicApp.Models;
-using DermatologyClinicApp.Views;
 
 namespace DermatologyClinicApp.Views
 {

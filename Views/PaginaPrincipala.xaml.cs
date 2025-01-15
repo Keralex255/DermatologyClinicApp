@@ -1,13 +1,13 @@
 using DermatologyClinicApp.Data;
-using DermatologyClinicApp.Views;
+using DermatologyClinicApp.Models;
 
-namespace DermatologyClinicApp
+namespace DermatologyClinicApp.Views
 {
-    public partial class MainPage : ContentPage
+    public partial class PaginaPrincipala : ContentPage
     {
         private readonly AppDbContext _context;
 
-        public MainPage(AppDbContext context)
+        public PaginaPrincipala(AppDbContext context)
         {
             InitializeComponent();
             _context = context;

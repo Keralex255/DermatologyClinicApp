@@ -9,7 +9,7 @@ namespace DermatologyClinicApp
         public App(AppDbContext dbContext)
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage(dbContext));
+            MainPage = new AppShell();
         }
     }
 }
