@@ -1,0 +1,10 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DermatologyClinicApp.Views.AppointmentAddEditPage"
+             Title="Adaugă/Editare Programare">
+    <VerticalStackLayout>
+        <DatePicker Date="{Binding AppointmentDate}" />
+        <Entry Placeholder="Status" Text="{Binding Status}" />
+        <Button Text="Salvează" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>

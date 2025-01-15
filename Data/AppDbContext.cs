@@ -1,9 +1,5 @@
-﻿using System;
+﻿using SQLite;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
 using System.Threading.Tasks;
 using DermatologyClinicApp.Models;
 
@@ -13,12 +9,11 @@ namespace DermatologyClinicApp.Data
     {
         private readonly SQLiteAsyncConnection _database;
 
-        // ✅ Constructor - Inițializare conexiune și creare tabele
         public AppDbContext(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
 
-            // ✅ Crearea tabelelor
+            // ✅ Crearea tabelelor User și Appointment
             _database.CreateTableAsync<User>().Wait();
             _database.CreateTableAsync<Appointment>().Wait();
         }

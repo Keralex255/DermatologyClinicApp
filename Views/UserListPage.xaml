@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DermatologyClinicApp.Views.UserListPage"
+             Title="Lista Utilizatori">
+    <VerticalStackLayout>
+        <Button Text="Adaugă Utilizator" Clicked="OnAddUserClicked" />
+        <ListView x:Name="UserListView" ItemSelected="OnUserSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Email}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

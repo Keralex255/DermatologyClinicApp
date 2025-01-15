@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using DermatologyClinicApp.Data;
+﻿using DermatologyClinicApp.Data;
+using DermatologyClinicApp.Views;
 
 namespace DermatologyClinicApp
 {
@@ -13,14 +13,19 @@ namespace DermatologyClinicApp
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clinic.db");
+            // ✅ Înregistrare AppDbContext ca serviciu singleton
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "clinic.db3");
             builder.Services.AddSingleton(new AppDbContext(dbPath));
+
+            // ✅ Înregistrare pagini
+            builder.Services.AddTransient<UserListPage>();
+            builder.Services.AddTransient<UserAddEditPage>();
+            builder.Services.AddTransient<UserDetailPage>();
+            builder.Services.AddTransient<AppointmentListPage>();
+            builder.Services.AddTransient<AppointmentAddEditPage>();
+            builder.Services.AddTransient<AppointmentDetailPage>();
 
             return builder.Build();
         }
